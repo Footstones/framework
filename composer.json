@@ -1,0 +1,20 @@
+{
+    "name": "footstones/rpc-framework",
+    "description": "this is a rpc framework base base on yar.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": { 
+            "Footstones\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ruanwenqin",
+            "email": "452253895@qq.com"
+        }
+    ],
+    "require": {
+        "doctrine/dbal": "v2.5.2"
+    }
+}
