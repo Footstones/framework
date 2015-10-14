@@ -1,6 +1,6 @@
 <?php
 
-namespace Footstones\Service;
+namespace Footstones\Framework\Service;
 
 use Footstones\Kernel;
 use Footstones\Exception\ServiceException;

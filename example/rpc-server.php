@@ -2,7 +2,7 @@
 
 include dirname(__DIR__).'/vendor/autoload.php';
 
-use Footstones\Kernel;
+use Footstones\Framework\Kernel;
 
 $config = include __DIR__.'/config.php';
 

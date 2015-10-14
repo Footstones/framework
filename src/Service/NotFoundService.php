@@ -1,6 +1,6 @@
 <?php
 
-namespace Footstones\Service;
+namespace Footstones\Framework\Service;
 
 class NotFoundService
 {

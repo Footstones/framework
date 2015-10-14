@@ -10,7 +10,7 @@ return [
         'password' => 'database_password',
         'charset' => 'utf8',
     ],
-    'namespace' => 'Footstones',
+    'namespace' => 'Footstones\Framework',
     'rpc' => [
         'timeout' => 5000, // 单位：微秒
         'connect_timeout' => 2000,

@@ -1,6 +1,6 @@
 <?php
 
-namespace Footstones\Dao;
+namespace Footstones\Framework\Dao;
 
 use Footstones\Kernel;
 use Footstones\Common\DynamicQueryBuilder;

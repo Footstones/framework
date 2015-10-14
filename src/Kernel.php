@@ -1,6 +1,6 @@
 <?php
 
-namespace Footstones;
+namespace Footstones\Framework;
 
 use Doctrine\DBAL\DriverManager;
 

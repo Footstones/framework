@@ -1,5 +1,5 @@
 <?php
-namespace Footstones\Exception;
+namespace Footstones\Framework\Exception;
 
 class ServiceException extends \Exception
 {

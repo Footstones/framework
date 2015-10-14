@@ -1,5 +1,5 @@
 <?php
-namespace Footstones\Common;
+namespace Footstones\Framework\Common;
 
 use Doctrine\DBAL\Query\QueryBuilder;
 use Doctrine\DBAL\Connection;
