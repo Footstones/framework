@@ -1,5 +1,5 @@
 {
-    "name": "footstones/rpc-framework",
+    "name": "footstones/framework",
     "description": "this is a rpc framework base base on yar.",
     "type": "library",
     "license": "MIT",
