@@ -3,6 +3,7 @@
 namespace Footstones\Framework;
 
 use Doctrine\DBAL\DriverManager;
+use Footstones\Framework\Service\NotFoundService;
 
 class Kernel
 {
@@ -92,6 +93,10 @@ class Kernel
 
     public function service($name)
     {
+        if ($name == 'NotFoundService') {
+            return new NotFoundService();
+        }
+        
         $class = "{$this->_config['namespace']}\\Service\\{$name}";
         if (!class_exists($class)) {
             throw new \RuntimeException("{$class} is not exist.");
