@@ -2,7 +2,7 @@
 
 namespace Footstones\Framework\Dao;
 
-use Footstones\Kernel;
+use Footstones\Framework\Kernel;
 use Footstones\Common\DynamicQueryBuilder;
 
 abstract class BaseDao

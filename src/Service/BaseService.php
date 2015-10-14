@@ -2,7 +2,7 @@
 
 namespace Footstones\Framework\Service;
 
-use Footstones\Kernel;
+use Footstones\Framework\Kernel;
 use Footstones\Exception\ServiceException;
 
 class BaseService
