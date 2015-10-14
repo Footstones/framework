@@ -4,6 +4,7 @@ namespace Footstones\Framework\Dao;
 
 use Footstones\Framework\Kernel;
 use Footstones\Framework\Common\DynamicQueryBuilder;
+use Footstones\Framework\Common\DaoException;
 
 abstract class BaseDao
 {
@@ -30,6 +31,6 @@ abstract class BaseDao
 
     protected function createDaoException($message = null, $code = 0)
     {
-        return new \PDOException($message, $code);
+        return new DaoException($message, $code);
     }
 }
