@@ -38,8 +38,6 @@ class Kernel
 
     public function handle()
     {
-        $this->boot();
-
         try {
             $service = $this->service(empty($_GET['service']) ? 'NotFoundService' : $_GET['service']);
         } catch (\Exception $e) {
