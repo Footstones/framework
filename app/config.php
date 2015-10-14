@@ -11,6 +11,7 @@ return [
         'charset' => 'utf8',
     ],
     'namespace' => 'Footstones\Framework',
+    'log_dir' => __DIR__,
     'rpc' => [
         'timeout' => 5000, // 单位：微秒
         'connect_timeout' => 2000,

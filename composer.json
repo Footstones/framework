@@ -15,6 +15,7 @@
         }
     ],
     "require": {
-        "doctrine/dbal": "v2.5.2"
+        "doctrine/dbal": "v2.5.2",
+        "monolog/monolog": "1.17.1"
     }
 }

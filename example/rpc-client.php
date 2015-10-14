@@ -1,12 +1,6 @@
 <?php
-include dirname(__DIR__).'/vendor/autoload.php';
 
-use Footstones\Framework\Kernel;
-
-$config = include __DIR__.'/config.php';
-
-$kernel = new Kernel($config);
-$kernel->boot();
+$kernel = include dirname(__DIR__).'/app/bootstrap.php';
 
 $exampleService = $kernel->rpc('node', 'ExampleService');
 $user = $exampleService->getUser();

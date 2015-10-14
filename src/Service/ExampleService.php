@@ -2,7 +2,9 @@
 
 namespace Footstones\Framework\Service;
 
-class ExampleService
+use Footstones\Framework\Common\ArrayToolkit;
+
+class ExampleService extends BaseService
 {
     public function getUser()
     {
@@ -16,5 +18,14 @@ class ExampleService
     public function createUser()
     {
         return array();
+    }
+
+    public function demo($paramters)
+    {
+        if (ArrayToolkit::requireds($paramters, array('id', 'name'))) {
+            throw $this->createServiceException('Missing reuqired paramters', self::MISSING_PARAMETER);
+        }
+
+        $this->addLog('This is test log', 'warning');
     }
 }
