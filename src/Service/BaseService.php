@@ -3,7 +3,7 @@
 namespace Footstones\Framework\Service;
 
 use Footstones\Framework\Kernel;
-use Footstones\Exception\ServiceException;
+use Footstones\Framework\Exception\ServiceException;
 
 class BaseService
 {
