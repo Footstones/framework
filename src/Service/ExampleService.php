@@ -26,6 +26,6 @@ class ExampleService extends BaseService
             throw $this->createServiceException('Missing reuqired paramters', self::MISSING_PARAMETER);
         }
 
-        $this->addLog('This is test log', 'warning');
+        $this->addLog('This is test log', 'warning', $paramters);
     }
 }

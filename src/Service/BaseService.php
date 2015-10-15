@@ -15,14 +15,14 @@ class BaseService
 
     protected $logger;
 
-    protected function addLog($message, $level)
+    protected function addLog($message, $level, array $context = array())
     {
-        if (!in_array($level, array('warning', 'error', 'citical', 'alert', 'emrgency'))) {
+        if (!in_array($level, array('info', 'notice', 'debug', 'warning', 'error', 'citical', 'alert', 'emrgency'))) {
             throw new ServiceException("Log level is not right,please check!", self::INVALID_PARAMETER);
         }
         $logger = $this->getLogger();
         $func = 'add'.ucfirst($level);
-        $logger->$func($message);
+        $logger->$func($message, $context);
     }
 
     protected function getLogger()
