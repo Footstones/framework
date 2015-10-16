@@ -11,6 +11,9 @@ return [
         'charset' => 'utf8',
     ],
     'namespace' => 'Footstones\Framework',
+    'kernel.DI' => [
+        'logger' => 'Footstones\Framework\Logger'
+    ],
     'log_dir' => __DIR__,
     'rpc' => [
         'timeout' => 5000, // 单位：微秒

@@ -122,6 +122,25 @@ class Kernel
         return new $class();
     }
 
+    public function DI($name)
+    {
+        $key = "_kernel.DI.{$name}";
+        if (!empty($this->_pool[$key])) {
+            return $this->_pool[$key];
+        }
+
+        $DIs = $this->_config['kernel.DI'];
+        if (!array_key_exists($name, $DIs)) {
+            throw new \RuntimeException("Not find {$name} Dependency Injection");
+        }
+        $class = $DIs[$name];
+        if (!class_exists($class)) {
+            throw new \RuntimeException("{$class} is not exist.");
+        }
+
+        return $this->_pool[$key] = new $class();
+    }
+
     protected function pool($name)
     {
         return !empty($this->_pool[$name]) ? $this->_pool[$name] : null;
