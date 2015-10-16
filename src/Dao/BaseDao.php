@@ -5,9 +5,12 @@ namespace Footstones\Framework\Dao;
 use Footstones\Framework\Kernel;
 use Footstones\Framework\Common\DynamicQueryBuilder;
 use Footstones\Framework\Common\DaoException;
+use Footstones\Framework\Common\FieldSerializer;
 
 abstract class BaseDao
 {
+    protected $cachedSerializer = array();
+
     public function db()
     {
         return Kernel::instance()->database();
@@ -32,5 +35,13 @@ abstract class BaseDao
     protected function createDaoException($message = null, $code = 0)
     {
         return new DaoException($message, $code);
+    }
+
+    protected function createSerializer()
+    {
+        if (!isset(self::$cachedSerializer['field_serializer'])) {
+            self::$cachedSerializer['field_serializer'] = new FieldSerializer();
+        }
+        return self::$cachedSerializer['field_serializer'];
     }
 }
