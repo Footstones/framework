@@ -9,7 +9,7 @@ use Footstones\Framework\Common\FieldSerializer;
 
 abstract class BaseDao
 {
-    protected $cachedSerializer = array();
+    private static $cachedSerializer = array();
 
     public function db()
     {
