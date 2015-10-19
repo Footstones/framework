@@ -15,6 +15,8 @@ class Kernel
 
     protected $_config = array();
 
+    protected $_env = array();
+
     public function __construct($config)
     {
         $this->_config = $config;
@@ -65,6 +67,25 @@ class Kernel
             'driver' => $config['driver'],
             'charset' => $config['charset'],
         ));
+    }
+
+    public function setEnv(array $env)
+    {
+        $this->_env = $env;
+        return $this;
+    }
+
+    public function getEnv($key = null)
+    {
+        if (empty($key)) {
+            return $this->_env;
+        }
+
+        if (!isset($this->_env[$key])) {
+            throw new \RuntimeException("Environment variable `{$key}` is not exist.");
+        }
+
+        return $this->_env[$key];
     }
 
     public function rpc($entrypoint, $service)
