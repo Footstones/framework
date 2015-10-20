@@ -98,7 +98,7 @@ class Kernel
         $config = $this->_config['rpc'];
 
         if (empty($config['entry_points'][$entrypoint])) {
-            throw new RuntimeException("RPC entry point: {$entrypoint} is not found.");
+            throw new \RuntimeException("RPC entry point: {$entrypoint} is not found.");
         }
 
         $url = "{$config['entry_points'][$entrypoint]}?service={$service}";
