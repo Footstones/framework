@@ -104,8 +104,9 @@ class Kernel
         $url = "{$config['entry_points'][$entrypoint]}?service={$service}";
 
         $rpc = new \Yar_Client($url);
-        $rpc->SetOpt(YAR_OPT_TIMEOUT, $config['timeout']);
-        $rpc->SetOpt(YAR_OPT_CONNECT_TIMEOUT, $config['connect_timeout']);
+        $rpc->SetOpt(YAR_OPT_TIMEOUT, empty($config['timeout']) ? '5000' : $config['timeout']);
+        $rpc->SetOpt(YAR_OPT_PACKAGER, empty($config['packager']) ? 'php' : $config['packager']);
+        $rpc->SetOpt(YAR_OPT_CONNECT_TIMEOUT, empty($config['connect_timeout']) ? '2000' : $config['connect_timeout']);
 
         return $this->_pool[$key] = $rpc;
     }
