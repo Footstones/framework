@@ -13,6 +13,8 @@ class BaseService
 
     const INVALID_PARAMETER = 51003;
 
+    const SERVICE_EXCEPTION = 50000;
+
     protected $logger;
 
     protected function addLog($message, $level, array $context = array())
