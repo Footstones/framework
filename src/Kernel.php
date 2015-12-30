@@ -107,6 +107,7 @@ abstract class Kernel
             $config = $this->_config['database'];
 
             $this->container[$id] = DriverManager::getConnection(array(
+                'wrapperClass' => 'Footstones\Framework\Dao\Connection',
                 'dbname' => $config['name'],
                 'user' => $config['user'],
                 'password' => $config['password'],
