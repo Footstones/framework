@@ -1,31 +1,49 @@
 <?php
+namespace Footstones\Framework\Test;
 
-namespace Test;
-
-use Footstones\Framework\Kernel;
+use Footstones\Framework\Test\Example\Kernel;
 
 class KernelTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * @expectedException \RuntimeException
-     */
-    public function testDI()
+    public function testDao()
     {
-        $kernel = $this->getKernel();
-        $kernel->DI('XXXX');
-        $logger = $kernel->DI('logger');
-
-        $this->assertEquals(get_class($logger), 'Logger');
+        $dao1 = $this->kernel()->dao('ExampleDao');
+        $dao2 = $this->kernel()->dao('ExampleDao');
+        $this->assertSame($dao1, $dao2);
     }
 
-    public function testEnv()
+    public function testService()
     {
-        $kernel = $this->getKernel();
-        $kernel->setEnv(array('root_dir' => __DIR__));
-        $this->assertEquals($kernel->getEnv('root_dir'), __DIR__);
+        $service1 = $this->kernel()->service('ExampleService');
+        $service2 = $this->kernel()->service('ExampleService');
+        $this->assertSame($service1, $service2);
     }
 
-    protected function getKernel()
+    public function testConfig()
+    {
+        $config = $this->kernel()->config('database', []);
+        $this->assertTrue(is_array($config));
+    }
+
+    public function testRpc()
+    {
+        $rpc1 = $this->kernel()->rpc('example', 'ExampleService');
+        $rpc2 = $this->kernel()->rpc('example', 'ExampleService');
+
+        $this->assertInstanceOf('Yar_Client', $rpc1);
+        $this->assertSame($rpc1, $rpc2);
+    }
+
+    public function testDatabase()
+    {
+        $db1 = $this->kernel()->database();
+        $db2 = $this->kernel()->database();
+
+        $this->assertInstanceOf('Doctrine\DBAL\Connection', $db1);
+        $this->assertSame($db1, $db2);
+    }
+
+    protected function kernel()
     {
         return Kernel::instance();
     }

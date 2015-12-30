@@ -1,6 +1,6 @@
 <?php
 
-namespace Footstones\Framework\Dao;
+namespace Footstones\Framework\Test\Example\Dao;
 
 use Footstones\Framework\Dao\BaseDao;
 

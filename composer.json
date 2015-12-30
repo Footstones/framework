@@ -6,17 +6,12 @@
     "autoload": {
         "psr-4": { 
             "Footstones\\Framework\\": "src/",
-            "Test\\": "tests/"
+            "Footstones\\Framework\\Test\\": "tests/"
         }
     },
-    "authors": [
-        {
-            "name": "ruanwenqin",
-            "email": "452253895@qq.com"
-        }
-    ],
     "require": {
         "doctrine/dbal": "v2.5.2",
-        "monolog/monolog": "1.17.1"
+        "monolog/monolog": "1.17.1",
+        "pimple/pimple" : "v3.0.2"
     }
 }
