@@ -23,6 +23,7 @@ abstract class Kernel
         $this->_config = $config;
         $this->container = new Container();
         self::$_instance = $this;
+        $this->container['kernel'] = $this;
     }
 
     public static function instance()
@@ -44,6 +45,11 @@ abstract class Kernel
 
         $server = new \Yar_Server($service);
         return $server->handle();
+    }
+
+    public function container()
+    {
+        return $this->container;
     }
 
     public function service($name)

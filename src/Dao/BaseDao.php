@@ -30,23 +30,23 @@ abstract class BaseDao
         return $this->kernel;
     }
 
-    protected function createDynamicQueryBuilder($conditions)
+    protected function builder($conditions)
     {
         return new DynamicQueryBuilder($this->db(), $conditions);
     }
 
-    protected function filterStartLimit(&$start, &$limit)
+    protected function limitation(&$start, &$limit)
     {
         $start = (int) $start;
         $limit = (int) $limit;
     }
 
-    protected function createDaoException($message = null, $code = 0)
+    protected function exception($message = null, $code = 0)
     {
         return new DaoException($message, $code);
     }
 
-    protected function createSerializer()
+    protected function serializer()
     {
         if (!isset(self::$cachedSerializer['field_serializer'])) {
             self::$cachedSerializer['field_serializer'] = new FieldSerializer();
