@@ -34,14 +34,13 @@ class KernelTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($rpc1, $rpc2);
     }
 
-    public function testDatabase()
+    public function testDb()
     {
-        $db1 = $this->kernel()->database();
-        $db2 = $this->kernel()->database();
+        $db1 = $this->kernel()->db();
+        $db2 = $this->kernel()->db();
 
         $this->assertInstanceOf('Footstones\Framework\Dao\Connection', $db1);
         $this->assertSame($db1, $db2);
-
     }
 
     protected function kernel()

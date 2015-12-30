@@ -6,5 +6,8 @@ use Footstones\Framework\Dao\BaseDao;
 
 class ExampleDao extends BaseDao
 {
-    protected $table = 'example';
+    public function table($args = null)
+    {
+        return 'example';
+    }
 }

@@ -53,7 +53,7 @@ abstract class Kernel
                 return new NotFoundService();
             }
             $class = "{$this->getNamespace()}\\Service\\{$name}";
-            $this->container[$name] =  new $class();
+            $this->container[$name] =  new $class($this);
         }
         return $this->container[$name];
     }
@@ -62,7 +62,7 @@ abstract class Kernel
     {
         if (!isset($this->container[$name])) {
             $class = "{$this->getNamespace()}\\Dao\\{$name}";
-            $this->container[$name] =  new $class();
+            $this->container[$name] =  new $class($this);
         }
         return $this->container[$name];
     }
@@ -100,7 +100,7 @@ abstract class Kernel
         return $this->_config[$name];
     }
 
-    public function database()
+    public function db()
     {
         $id = '_.database';
         if (!isset($this->container[$id])) {
