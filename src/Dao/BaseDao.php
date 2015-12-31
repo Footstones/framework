@@ -30,6 +30,34 @@ abstract class BaseDao
         return $this->kernel;
     }
 
+    protected function cache($key, $callback, $ttl = 864000)
+    {
+        if (is_array($key)) {
+            $group = $key[0];
+            $key = $key[1];
+        } else {
+            $group = 'default';
+        }
+
+        $redis = $this->kernel()->redis($group, true);
+
+        $data = $redis->get($key);
+        if ($data) {
+            return $data;
+        }
+
+        $data = $callback();
+
+        $redis = $this->kernel()->redis($group);
+        if ($ttl && $ttl > 0) {
+            $redis->setex($key, $ttl, $data);
+        } else {
+            $redis->set($key, $data);
+        }
+
+        return $data;
+    }
+
     protected function builder($conditions)
     {
         return new DynamicQueryBuilder($this->db(), $conditions);

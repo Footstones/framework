@@ -43,6 +43,23 @@ class KernelTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($db1, $db2);
     }
 
+    public function testRedis()
+    {
+        $redis1 = $this->kernel()->redis('default');
+        $redis2 = $this->kernel()->redis('default');
+
+        $this->assertInstanceOf('Redis', $redis1);
+        $this->assertSame($redis1, $redis2);
+
+        $slaveRedis1 = $this->kernel()->redis('default', true);
+        $slaveRedis2 = $this->kernel()->redis('default', true);
+
+        $this->assertInstanceOf('Redis', $slaveRedis1);
+        $this->assertSame($slaveRedis1, $slaveRedis2);
+
+        $this->assertNotSame($slaveRedis1, $redis1);
+    }
+
     protected function kernel()
     {
         return Kernel::instance();

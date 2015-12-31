@@ -5,6 +5,7 @@ namespace Footstones\Framework;
 use Doctrine\DBAL\DriverManager;
 use Footstones\Framework\Service\NotFoundService;
 use Pimple\Container;
+use Footstones\Framework\Common\RedisPool;
 
 abstract class Kernel
 {
@@ -50,6 +51,20 @@ abstract class Kernel
     public function container()
     {
         return $this->container;
+    }
+
+    public function user()
+    {
+        if (!isset($this->container['user'])) {
+            return null;
+        }
+
+        return $this->container['user'];
+    }
+
+    public function setUser($user)
+    {
+        $this->container['user'] = $user;
     }
 
     public function service($name)
@@ -124,6 +139,20 @@ abstract class Kernel
         }
 
         return $this->container[$id];
+    }
+
+    public function redis($group = 'default', $slave = false)
+    {
+        $id = '_.redis';
+        if (!isset($this->container[$id])) {
+            $this->container[$id] = RedisPool::init($this->config('redis'));
+        }
+
+        if ($slave) {
+            return $this->container[$id]->getRedisSlave($group);
+        }
+
+        return $this->container[$id]->getRedis($group);
     }
 
 }
