@@ -61,10 +61,7 @@ class M3U8Modifier
         $secondMaxDuration = $modifier->parseSegmentMaxDuration();
         $secondBody = $modifier->cutSegmentBody();
 
-        $m3u8 = $firstPart1 . "\n" . $secondBody . "\n" . $firstPart2;
-
-
-        var_dump($m3u8);exit();
+        return $this->content = $firstPart1 . "\n" . $secondBody . "\n#EXT-X-DISCONTINUITY\n" . $firstPart2;
     }
 
     /**

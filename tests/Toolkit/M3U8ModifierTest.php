@@ -5,7 +5,7 @@ use Footstones\Framework\Test\Example\Kernel;
 
 use Footstones\Framework\Toolkit\M3U8Modifier;
 
-class ExampleDaoTest extends \PHPUnit_Framework_TestCase
+class M3U8ModifierTest extends \PHPUnit_Framework_TestCase
 {
 
     public function test()
