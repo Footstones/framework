@@ -1,0 +1,7 @@
+#EXTM3U
+#EXT-X-TARGETDURATION:15
+#EXT-X-DISCONTINUITY
+#EXT-X-KEY:METHOD=AES-128,URI="$tpl_key_uri$", IV=0x67c6697351ff4aec29cdbaabf2fbe346
+#EXTINF:8,
+http://es-public.gz.bcebos.com/esa16m-pub/courselesson-1/20160117093407-o14qm5wx1tcsss8o_hd_-1_0.ts?x-bce-range=0-114319
+#EXT-X-ENDLIST
