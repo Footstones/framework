@@ -10,8 +10,8 @@
         }
     },
     "require": {
-        "monolog/monolog": "^1.9",
-        "doctrine/dbal": "^2.5",
-        "pimple/pimple": "^3.0"
+        "monolog/monolog": "^1",
+        "doctrine/dbal": "^2",
+        "pimple/pimple": "^3"
     }
 }
